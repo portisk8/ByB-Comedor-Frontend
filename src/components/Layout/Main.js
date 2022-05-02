@@ -9,6 +9,8 @@ import {
   UploadOutlined,
 } from "@ant-design/icons";
 import Footer from "./Footer";
+import logoByB from "../../assets/images/ByB-logo2.png";
+import { items } from "./MenuItems";
 
 const { Header: AntHeader, Content, Sider } = Layout;
 
@@ -34,29 +36,20 @@ function Main({ children }) {
     // </Layout>
     visible ? (
       <Layout style={{ height: "100%" }}>
-        <Sider trigger={null} collapsible collapsed={collapsed}>
-          <div className="logo">{collapsed ? "ByB" : "ByB-Comedor"}</div>
+        <Sider trigger={null} collapsible collapsed={collapsed} theme="dark">
+          <div className="logo">
+            {collapsed ? (
+              <img src={logoByB} alt="" style={{ width: "100%" }} />
+            ) : (
+              <img src={logoByB} alt="" style={{ width: "70%" }} />
+            )}
+          </div>
           <Menu
             theme="dark"
             mode="inline"
+            inlineCollapsed={collapsed}
             defaultSelectedKeys={["1"]}
-            items={[
-              {
-                key: "1",
-                icon: <UserOutlined />,
-                label: "nav 1",
-              },
-              {
-                key: "2",
-                icon: <VideoCameraOutlined />,
-                label: "nav 2",
-              },
-              {
-                key: "3",
-                icon: <UploadOutlined />,
-                label: "nav 3",
-              },
-            ]}
+            items={items}
           />
         </Sider>
         <Layout className="site-layout">
