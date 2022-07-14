@@ -1,5 +1,6 @@
-import { Button, Form, Input, Select } from 'antd';
-import React from 'react';
+import { Button, Form, Input, Select,DatePicker } from 'antd';
+import React, { useEffect, useState } from 'react';
+import Buscador from './Buscador';
 
 const { Option } = Select;
 const layout = {
@@ -18,48 +19,72 @@ const tailLayout = {
 };
 
 const { Search } = Input;
-const onSearch = (value) => console.log(value);
+
 
 const FormularioInfante = () => {
     const [form] = Form.useForm();
+    const [filterTable, setFilterTable] = useState(null);
+    const [tutor, setTutor] = useState([])
 
-    const onGenderChange = (value) => {
-      switch (value) {
-        case 'male':
-          form.setFieldsValue({
-            note: 'Hi, man!',
-          });
-          return;
-  
-        case 'female':
-          form.setFieldsValue({
-            note: 'Hi, lady!',
-          });
-          return;
-  
-        case 'other':
-          form.setFieldsValue({
-            note: 'Hi there!',
-          });
+    useEffect(() => {
+      const obtenerTutores=async()=>{
+        try {
+          const url='http://localhost:4000/tutores'
+          const respuesta=await fetch(url)
+          const resultado=await respuesta.json()
+          setTutor(resultado)
+          
+        } catch (error) {
+          console.log(error)
+        }
+
+
       }
+      obtenerTutores()
+    },[])
+    
+    const onSearch = (value) =>{
+      const filterData = tutor.filter((o) => Object.keys(o).some((k) => String(o[k])
+      .toLowerCase()
+      .includes(value.toLowerCase())));
+    console.log(filterData);
+    
     };
+   
   
-    const onFinish = (values) => {
-      console.log(values);
+    const onFinish = async (values) => {
+      try {
+        const url='http://localhost:4000/infantes'
+        const respuesta=await fetch(url,{
+          method: 'POST',
+          body: JSON.stringify(values),
+          headers:{
+            'Content-Type': 'application/json'
+          }
+        })
+
+        const resultado=await respuesta.json()
+        console.log(resultado)
+      } catch (error) {
+        
+      }
     };
   
     const onReset = () => {
       form.resetFields();
     };
   
-    const onFill = () => {
-      form.setFieldsValue({
-        note: 'Hello world!',
-        gender: 'male',
-      });
-    };
+   
   return (
-    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
+    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish} initialValues={{
+      nombre: '',
+      apellido: '',
+      dni: '',
+      domicilio:'',
+      tutor:'',
+      edad:'',
+      fechaNac:''
+    }}>
     <Form.Item
       name="nombre"
       label="Nombre"
@@ -106,8 +131,8 @@ const FormularioInfante = () => {
     >
       <Input />
     </Form.Item>
-    <Form.Item label="Tutor">
-    <Search placeholder="input search text" onSearch={onSearch} enterButton />
+    <Form.Item name="tutor" label="Tutor">
+    <Buscador/>
       </Form.Item>
     <Form.Item
       name="edad"
@@ -130,25 +155,24 @@ const FormularioInfante = () => {
         },
       ]}
     >
-      <Input />
+      <DatePicker />
+
       
     </Form.Item>
 
-      <h2>Datos Antropometricos</h2>
+      <h3>Datos Antropometricos</h3>
 
 
 
  
     <Form.Item {...tailLayout}>
       <Button type="primary" htmlType="submit">
-        Submit
+        Registrar infante
       </Button>
       <Button htmlType="button" onClick={onReset}>
-        Reset
+        Reiniciar Formulario
       </Button>
-      <Button type="link" htmlType="button" onClick={onFill}>
-        Fill form
-      </Button>
+     
     </Form.Item>
   </Form>
   )

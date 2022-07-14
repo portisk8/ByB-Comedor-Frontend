@@ -8,6 +8,7 @@ import ModalTutor from "../../components/ModalTutor";
 import TablaDatos from "../../components/TablaDatos";
 import Grafico from "../../components/Grafico";
 import DemoColumn from "../../components/DemoColumn";
+import Buscador from "../../components/Buscador";
 
 
 function Home() {
@@ -32,7 +33,7 @@ function Home() {
         <Row>
         <Col span={10} >
             <Card bordered={false}>
-              <Grafico/>
+             
             </Card>
           </Col>
           <Col span={10} >
@@ -46,6 +47,7 @@ function Home() {
         <Row>
         <Col span={24} >
             <Card bordered={false}>
+              
               <TablaDatos/>
             </Card>
           </Col>

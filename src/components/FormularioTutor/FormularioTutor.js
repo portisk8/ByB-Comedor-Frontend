@@ -1,4 +1,4 @@
-import { Button, Form, Input, Select } from "antd";
+import { Button, Form, Input, Select, DatePicker } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import React from "react";
 import ModalInfante from "../ModalInfante";
@@ -42,22 +42,50 @@ const FormularioTutor = () => {
     }
   };
 
-  const onFinish = (values) => {
-    console.log(values.nombre);
+  const onFinish = async (values) => {
+    try {
+      const url='http://localhost:4000/tutores'
+      const respuesta=await fetch(url,{
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      })
+
+      const resultado=await respuesta.json()
+      console.log(resultado)
+    } catch (error) {
+      
+    }
   };
 
   const onReset = () => {
     form.resetFields();
   };
 
-  const onFill = () => {
-    form.setFieldsValue({
-      note: "Hello world!",
-      gender: "male",
-    });
-  };
+  
+  const prefixSelector = (
+    <Form.Item name="prefix" noStyle>
+      <Select
+        style={{
+          width: 70,
+        }}
+      >
+        <Option value="54">+54</Option>
+        
+      </Select>
+    </Form.Item>
+  );
+
   return (
-    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
+    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish} initialValues={{
+      nombre: '',
+      apellido: '',
+      dni: '',
+      domicilio:'',
+      telefono:''
+    }} >
       <Form.Item
         name="nombre"
         label="Nombre"
@@ -103,32 +131,37 @@ const FormularioTutor = () => {
       >
         <Input />
       </Form.Item>
+     
+
       <Form.Item
-        name="telefono"
-        label="Telefono"
+        name="phone"
+        label="Phone Number"
         rules={[
           {
             required: true,
+            message: 'Please input your phone number!',
           },
         ]}
       >
-        <Input />
+        <Input
+          addonBefore={prefixSelector}
+          style={{
+            width: '100%',
+          }}
+        />
       </Form.Item>
-
 
 
      
 
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
-          Submit
+          Registrar Tutor
         </Button>
         <Button htmlType="button" onClick={onReset}>
-          Reset
+          Reiniciar Formulario
         </Button>
-        <Button type="link" htmlType="button" onClick={onFill}>
-          Fill form
-        </Button>
+        
       </Form.Item>
     </Form>
   );

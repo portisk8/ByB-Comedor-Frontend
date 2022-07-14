@@ -1,16 +1,10 @@
 import { Form, Input, InputNumber, Popconfirm, Table, Typography, Modal } from "antd";
 import { EditFilled, DeleteFilled, EyeFilled } from "@ant-design/icons";
-import React, { useState } from "react";
-const originData = [];
+import React, { useState,useEffect } from "react";
 
-for (let i = 0; i < 5; i++) {
-  originData.push({
-    key: i.toString(),
-    name: `Edrward ${i}`,
-    age: 32,
-    address: `London Park no. ${i}`,
-  });
-}
+
+
+
 
 const EditableCell = ({
   editing,
@@ -49,16 +43,35 @@ const EditableCell = ({
 
 const TablaDatos = () => {
   const [form] = Form.useForm();
-  const [data, setData] = useState(originData);
+  const [data, setData] = useState();
   const [editingKey, setEditingKey] = useState("");
+  const [tutor, setTutor] = useState([])
+
+useEffect(() => {
+  const obtenerTutores=async()=>{
+    try {
+      const url='http://localhost:4000/infantes'
+      const respuesta=await fetch(url)
+      const resultado=await respuesta.json()
+      setData(resultado)
+      
+    } catch (error) {
+      console.log(error)
+    }
+
+
+  }
+  obtenerTutores()
+},[])
 
   const isEditing = (record) => record.key === editingKey;
 
   const edit = (record) => {
     form.setFieldsValue({
-      name: "",
-      age: "",
-      address: "",
+      dni: "",
+      nombre: "",
+      apellido: "",
+      tutor: "",
       ...record,
     });
     setEditingKey(record.key);
@@ -97,21 +110,28 @@ const TablaDatos = () => {
 
   const columns = [
     {
-      title: "name",
-      dataIndex: "name",
+      title: "DNI",
+      dataIndex: "dni",
       width: "25%",
       editable: true,
     },
     {
-      title: "age",
-      dataIndex: "age",
-      width: "15%",
+      title: "Nombre",
+      dataIndex: "nombre",
+      width: "25%",
       editable: true,
     },
     {
-      title: "address",
-      dataIndex: "address",
-      width: "40%",
+      title: "Apellido",
+      dataIndex: "apellido",
+      width: "20%",
+      editable: true,
+    },
+
+    {
+      title: "Tutor",
+      dataIndex: "tutor",
+      width: "30%%",
       editable: true,
     },
     {
