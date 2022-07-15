@@ -1,44 +1,4 @@
 {
-  "infantes": [
-    {
-      "nombre": "Facundo",
-      "apellido": "Almaraz",
-      "dni": "3432454",
-      "domicilio": "asjdasdlkj 32324",
-      "tutor": "",
-      "edad": "34",
-      "fechaNac": "2022-07-19T20:03:14.228Z",
-      "id": 1
-    },
-    {
-      "nombre": "Facundo",
-      "apellido": "Almaraz",
-      "dni": "3432454",
-      "domicilio": "asjdasdlkj 32324",
-      "tutor": "",
-      "edad": "34",
-      "fechaNac": "2022-07-05T20:05:57.091Z",
-      "id": 2
-    }
-  ],
-  "tutores": [
-    {
-      "nombre": "Juan",
-      "apellido": "Almaraz",
-      "dni": "34877384",
-      "domicilio": "dsasdadsdas",
-      "prefix": "54",
-      "phone": "122112",
-      "id": 1
-    },
-    {
-      "nombre": "Jorge",
-      "apellido": "Garcia",
-      "dni": "434334",
-      "domicilio": "sdsaddsads",
-      "prefix": "54",
-      "phone": "323434232",
-      "id": 2
-    }
-  ]
+  "infantes": [],
+  "tutores": []
 }

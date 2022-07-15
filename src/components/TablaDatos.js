@@ -1,10 +1,14 @@
-import { Form, Input, InputNumber, Popconfirm, Table, Typography, Modal } from "antd";
+import {
+  Form,
+  Input,
+  InputNumber,
+  Popconfirm,
+  Table,
+  Typography,
+  Modal,
+} from "antd";
 import { EditFilled, DeleteFilled, EyeFilled } from "@ant-design/icons";
-import React, { useState,useEffect } from "react";
-
-
-
-
+import React, { useState, useEffect } from "react";
 
 const EditableCell = ({
   editing,
@@ -45,24 +49,20 @@ const TablaDatos = () => {
   const [form] = Form.useForm();
   const [data, setData] = useState();
   const [editingKey, setEditingKey] = useState("");
-  const [tutor, setTutor] = useState([])
 
-useEffect(() => {
-  const obtenerTutores=async()=>{
-    try {
-      const url='http://localhost:4000/infantes'
-      const respuesta=await fetch(url)
-      const resultado=await respuesta.json()
-      setData(resultado)
-      
-    } catch (error) {
-      console.log(error)
-    }
-
-
-  }
-  obtenerTutores()
-},[])
+  useEffect(() => {
+    const obtenerTutores = async () => {
+      try {
+        const url = "http://localhost:4000/infantes";
+        const respuesta = await fetch(url);
+        const resultado = await respuesta.json();
+        setData(resultado);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    obtenerTutores();
+  }, []);
 
   const isEditing = (record) => record.key === editingKey;
 
@@ -101,11 +101,10 @@ useEffect(() => {
       console.log("Validate Failed:", errInfo);
     }
   };
- 
-    const handleDelete = (key) => {
-       
-        const newData = data.filter((item) => item.key !== key);
-        setData(newData);
+
+  const handleDelete = (key) => {
+    const newData = data.filter((item) => item.key !== key);
+    setData(newData);
   };
 
   const columns = [
@@ -159,16 +158,21 @@ useEffect(() => {
             <EditFilled
               disabled={editingKey !== ""}
               onClick={() => edit(record)}
-              style={{ ontSize:'20px',color: "Blue", marginLeft: 20 }}
+              style={{ ontSize: "20px", color: "Blue", marginLeft: 20 }}
             />
-             
-            
-            <Popconfirm title="Seguro que desea borrar?" onConfirm={()=> handleDelete(record.key)}>
-            <DeleteFilled 
-              style={{ ontSize:'20px',color: "red", marginLeft: 20 }}/>
-              </Popconfirm>
 
-              <EyeFilled style={{ fontSize:'20px', color: "green", marginLeft: 20 }} />
+            <Popconfirm
+              title="Seguro que desea borrar?"
+              onConfirm={() => handleDelete(record.key)}
+            >
+              <DeleteFilled
+                style={{ ontSize: "20px", color: "red", marginLeft: 20 }}
+              />
+            </Popconfirm>
+
+            <EyeFilled
+              style={{ fontSize: "20px", color: "green", marginLeft: 20 }}
+            />
           </>
         );
       },
