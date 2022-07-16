@@ -1,7 +1,7 @@
 import { Button, Form, Input, Select, DatePicker } from "antd";
 import FormItem from "antd/lib/form/FormItem";
 import React from "react";
-import ModalInfante from "../ModalInfante";
+import ModalInfante from "../Infantes/ModalInfante";
 const { Option } = Select;
 const layout = {
   labelCol: {

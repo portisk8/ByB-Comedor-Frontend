@@ -11,6 +11,7 @@ import esES from "antd/lib/locale-provider/es_ES";
 import CONFIG from "./common/environment";
 import "moment/locale/es-mx";
 
+
 function App() {
   useEffect(() => {
     document.title = CONFIG.TITLE;
@@ -25,6 +26,7 @@ function App() {
                 <Route key={`${index}-a`} path={a.path} element={a.element} />
               ))}
             </Route>
+            
             <Route element={<MainNoAuth />}>
               {noAuthRoutes.map((na, index) => (
                 <Route

@@ -3,18 +3,19 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PageHeaderLayout from "../../components/PageHeaderLayout/PageHeaderLayout";
 import { Button, Card, Space, Row, Col } from "antd";
 import { PlusCircleTwoTone } from "@ant-design/icons";
-import ModalInfante from "../../components/ModalInfante";
-import ModalTutor from "../../components/ModalTutor";
-import TablaDatos from "../../components/TablaDatos";
-import Grafico from "../../components/Grafico";
-import DemoColumn from "../../components/DemoColumn";
-import Buscador from "../../components/Buscador";
+import ModalInfante from "../../components/Infantes/ModalInfante";
+import ModalTutor from "../../components/Tutores/ModalTutor"
+import TablaDatos from "../../components/Tablas/TablaDatos";
+import Grafico from "../../components/Graficos/Grafico";
+import DemoColumn from "../../components/Graficos/DemoColumn";
+
 
 
 function Home() {
   const navigate = useNavigate();
   return (
     <PageHeaderLayout title={"Inicio"}>
+      <h1><a>Seleccionar comedor</a></h1>
       <div className="site-card-wrapper">
         <Row gutter={16}>
           <Col span={16}>
@@ -24,7 +25,7 @@ function Home() {
           </Col>
           <Col span={1}>
             <Card bordered={false}>
-              <ModalTutor />
+              <ModalTutor/>
             </Card>
           </Col>
           

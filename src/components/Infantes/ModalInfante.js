@@ -2,9 +2,9 @@ import { Button, Modal, Card } from "antd";
 import React, { useState } from "react";
 import { UsergroupAddOutlined } from "@ant-design/icons";
 import FormularioInfante from "./FormularioInfante";
-import FormularioTutor from "./FormularioTutor/FormularioTutor";
 
-const ModalInfante = () => {
+
+const ModalInfante = ({}) => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const showModal = () => {

@@ -1,8 +1,8 @@
 import { Button, Modal, Card, Col, Row } from 'antd';
 import React, { useState } from 'react';
 import { UserAddOutlined } from "@ant-design/icons";
-import FormularioInfante from './FormularioInfante';
-import FormularioTutor from './FormularioTutor/FormularioTutor';
+import FormularioTutor from "../Tutores/FormularioTutor"
+
 
 
 const ModalTutor = () => {
@@ -30,7 +30,7 @@ const ModalTutor = () => {
      
       
       <Modal title="Formulario Tutor" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-        <FormularioTutor />
+        <FormularioTutor/>
 
         
       </Modal>
