@@ -1,24 +1,4 @@
 {
-  "infantes": [
-    {
-      "nombre": "Facundo",
-      "apellido": "Almaraz",
-      "dni": "34877384",
-      "tutor": "34877384 - Juan Almaraz",
-      "edad": "34",
-      "fechaNac": "2022-07-13T11:19:27.492Z",
-      "id": 1
-    }
-  ],
-  "tutores": [
-    {
-      "nombre": "Juan",
-      "apellido": "Almaraz",
-      "dni": "34877384",
-      "domicilio": "asjdasdlkj 32324",
-      "prefix": "54",
-      "phone": "56546545",
-      "id": 1
-    }
-  ]
+  "infantes": [],
+  "tutores": []
 }

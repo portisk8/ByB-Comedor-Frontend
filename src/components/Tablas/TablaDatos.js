@@ -27,6 +27,11 @@ const TablaDatos = () => {
   
   
 const columns = [
+  {
+    title: "Fecha de Carga",
+    dataIndex: "fecha",
+    key: "fecha",
+  },
     {
       title: "Nombre y Apellido",
       dataIndex: "nombre",
@@ -57,7 +62,8 @@ const columns = [
   const dataSource = Data.map((item)=>(
     {
       id: item.id,
-      nombre: `${item.nombre}`,
+      fecha: item.fechaCarga,
+      nombre: `${item.nombre} ${item.apellido}`,
       dni: item.dni,
       tutor: item.tutor
     }))

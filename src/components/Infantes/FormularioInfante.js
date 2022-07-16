@@ -1,18 +1,32 @@
-import { Button, Form, Input, DatePicker, AutoComplete } from "antd";
+import {
+  Button,
+  Form,
+  Input,
+  DatePicker,
+  AutoComplete,
+  InputNumber,
+  Row,
+  Col,
+  Card,
+} from "antd";
 import React, { useEffect, useState } from "react";
 
-const layout = {
+const formItemLayout = {
   labelCol: {
-    span: 8,
+    xs: {
+      span: 12,
+    },
+    sm: {
+      span: 8,
+    },
   },
   wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
+    xs: {
+      span: 4,
+    },
+    sm: {
+      span: 20,
+    },
   },
 };
 
@@ -59,104 +73,139 @@ const FormularioInfante = () => {
     form.resetFields();
   };
 
+  const obtenerFecha = () => {
+    let date = new Date();
+    return date.toISOString().split("T")[0];
+  };
+
   return (
     <Form
-      {...layout}
+      {...formItemLayout}
       form={form}
       name="control-hooks"
       onFinish={onFinish}
       initialValues={{
-        nombre: "",
-        apellido: "",
-        dni: "",
-        domicilio: "",
-        tutor: tutor,
-        edad: "",
-        fechaNac: "",
+        fechaCarga: `${obtenerFecha()}`,
       }}
     >
       <Form.Item
-        name="nombre"
-        label="Nombre"
+        name="fechaCarga"
+        label="Fecha"
         rules={[
           {
             required: true,
           },
         ]}
       >
-        <Input />
+        <Input disabled={true} />
       </Form.Item>
+      <Row>
+        <Col flex="auto">
+          <h3 style={{ textAlign: "center" }}>Datos Personales</h3>
+          <Form.Item
+            name="nombre"
+            label="Nombre"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-      <Form.Item
-        name="apellido"
-        label="Apellido"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="dni"
-        label="DNI"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
+          <Form.Item
+            name="apellido"
+            label="Apellido"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
+          <Form.Item
+            name="dni"
+            label="DNI"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <Input />
+          </Form.Item>
 
-      <Form.Item
-        name="tutor"
-        label="Tutor"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <AutoComplete
-          options={options}
-          style={{
-            width: 300,
-          }}
-          placeholder="input here"
-          filterOption={(inputValue, option) =>
-            option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1
-          }
-        ></AutoComplete>
-      </Form.Item>
+          <Form.Item
+            name="tutor"
+            label="Tutor"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <AutoComplete
+              options={options}
+              style={{
+                width: 300,
+              }}
+              placeholder="input here"
+              filterOption={(inputValue, option) =>
+                option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !==
+                -1
+              }
+            ></AutoComplete>
+          </Form.Item>
 
-      <Form.Item
-        name="edad"
-        label="Edad"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <Input />
-      </Form.Item>
-      <Form.Item
-        name="fechaNac"
-        label="Fecha de Nacimiento"
-        rules={[
-          {
-            required: true,
-          },
-        ]}
-      >
-        <DatePicker />
-      </Form.Item>
+          <Form.Item name="edad" label="Edad" rules={[{}]}>
+            <Input />
+          </Form.Item>
+          <Form.Item name="fechaNac" label="Fecha de Nacimiento">
+            <DatePicker />
+          </Form.Item>
+        </Col>
 
-      <h3>Datos Antropometricos</h3>
+        <Col flex="700px">
+          <h3 style={{ textAlign: "center" }}>Datos Antropometricos</h3>
+          <Form.Item
+            name="peso"
+            label="Peso"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <InputNumber /> 
+          </Form.Item>
+          <Form.Item
+            name="altura"
+            label="Altura"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <InputNumber /> 
+          </Form.Item>
+          <Form.Item
+            name="circuferencia"
+            label="Circunferencia Cintura"
+            rules={[
+              {
+                required: true,
+              },
+            ]}
+          >
+            <InputNumber /> 
+          </Form.Item>
+        </Col>
+      </Row>
 
-      <Form.Item {...tailLayout}>
+      <Form.Item >
         <Button type="primary" htmlType="submit">
           Registrar infante
         </Button>

@@ -31,9 +31,9 @@ const VerInfoInfante = () => {
         <p>Edad: {Infante.edad} años</p>
         <p>Fecha de Nacimiento: {Infante.fechaNac}</p>
         <h3>Datos Antropometricos</h3>
-        <p>Peso: 60 Kg</p>
-        <p>Altura: 164 CM</p>
-        <p>Circunferencia Cintura: 90 CM</p>
+        <p>Peso:  {Infante.peso} KG</p>
+        <p>Altura: {Infante.altura} CM</p>
+        <p>Circunferencia Cintura: {Infante.circuferencia} CM</p>
 
         <TabsGraficos/>
       </Card>

@@ -33,6 +33,7 @@ const ModalInfante = ({}) => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        width={1200}
       >
         <FormularioInfante />
       </Modal>
