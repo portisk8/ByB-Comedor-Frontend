@@ -6,12 +6,14 @@ import SignIn from "../pages/NoAuth/SignIn";
 import SignUp from "../pages/NoAuth/SignUp";
 import VerInfoInfante from "../pages/Auth/VerInfoInfante";
 
+
 export const authRoutes = [
   { path: "/", element: <Home /> },
   { path: "/dashboard", element: <Dashboard /> },
   { path: "/test", element: <Test /> },
   { path: "/test/:testId", element: <TestWithId /> },
   { path: "/infantes/:id", element: <VerInfoInfante /> },
+  
 ];
 
 export const noAuthRoutes = [

@@ -10,11 +10,11 @@ const onChange = (key) => {
 
 const TabsGraficos = () => (
   <Tabs defaultActiveKey="1" onChange={onChange}>
-    <TabPane tab="Tab 1" key="1">
+    <TabPane tab="Peso" key="1">
       <Grafico/>
     </TabPane>
     
-    <TabPane tab="Tab 2" key="2">
+    <TabPane tab="IMC" key="2">
     <DemoColumn/>
     </TabPane>
   </Tabs>

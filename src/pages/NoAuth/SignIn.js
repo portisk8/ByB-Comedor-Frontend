@@ -33,12 +33,13 @@ function SignIn() {
     setLoading(true);
     dispatch(login(values)).then((data) => {
       setLoading(false);
+      
       if (data && data.access_token) navigate("/");
     });
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.error("Failed:", errorInfo);
+    console.error("Failed:", errorInfo); 
   };
 
   return (

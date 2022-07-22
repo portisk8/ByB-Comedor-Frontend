@@ -15,7 +15,7 @@ function Home() {
   const navigate = useNavigate();
   return (
     <PageHeaderLayout title={"Inicio"}>
-      <h1><a>Seleccionar comedor</a></h1>
+      
       <div className="site-card-wrapper">
         <Row gutter={16}>
           <Col span={16}>

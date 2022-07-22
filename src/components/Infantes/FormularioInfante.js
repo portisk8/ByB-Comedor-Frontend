@@ -9,7 +9,10 @@ import {
   Col,
   Card,
 } from "antd";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
+
+const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
 const formItemLayout = {
   labelCol: {
@@ -30,7 +33,7 @@ const formItemLayout = {
   },
 };
 
-const FormularioInfante = () => {
+const FormularioInfante = ({Infante}) => {
   const [form] = Form.useForm();
 
   const [tutor, setTutor] = useState([]);
@@ -55,6 +58,7 @@ const FormularioInfante = () => {
 
   const onFinish = async (values) => {
     try {
+      console.log(values)
       const url = "http://localhost:4000/infantes";
       const respuesta = await fetch(url, {
         method: "POST",
@@ -163,7 +167,10 @@ const FormularioInfante = () => {
             <Input />
           </Form.Item>
           <Form.Item name="fechaNac" label="Fecha de Nacimiento">
-            <DatePicker />
+            <DatePicker
+              defaultValue={moment("01/01/2015", dateFormatList[0])}
+              format={dateFormatList}
+            />
           </Form.Item>
         </Col>
 
@@ -178,7 +185,7 @@ const FormularioInfante = () => {
               },
             ]}
           >
-            <InputNumber /> 
+            <InputNumber />
           </Form.Item>
           <Form.Item
             name="altura"
@@ -189,7 +196,7 @@ const FormularioInfante = () => {
               },
             ]}
           >
-            <InputNumber /> 
+            <InputNumber />
           </Form.Item>
           <Form.Item
             name="circuferencia"
@@ -200,12 +207,12 @@ const FormularioInfante = () => {
               },
             ]}
           >
-            <InputNumber /> 
+            <InputNumber />
           </Form.Item>
         </Col>
       </Row>
 
-      <Form.Item >
+      <Form.Item>
         <Button type="primary" htmlType="submit">
           Registrar infante
         </Button>

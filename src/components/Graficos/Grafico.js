@@ -14,8 +14,11 @@ const Grafico = () => {
     { year: '1999', value: 13 },
   ];
 
+
+
   const config = {
     data,
+    
     height: 400,
     xField: 'year',
     yField: 'value',
@@ -24,6 +27,8 @@ const Grafico = () => {
       shape: 'diamond',
     },
   };
+
+ 
   return <Line {...config} />;
 };
 export default Grafico;

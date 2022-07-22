@@ -54,7 +54,10 @@ const columns = [
       render: (_, record) => (
       <Space size="middle">
         <Button onClick={()=>navigate(`infantes/${record.id}`)} type="primary">Ver Mas informacion</Button>
+        
       </Space>
+
+      
     ),
     },
   ];

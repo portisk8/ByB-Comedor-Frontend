@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./index.scss";
-import { Layout, Menu, Row, Col, Dropdown } from "antd";
+import { Layout, Menu, Row, Col, Dropdown, Button } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../store/slices/users";
 import { sideMenuCollapse } from "../../store/slices/layout";
 import Notification from "../Notifications/Notification";
+import ModalComedor from "../ModalComedor";
 
 const { Header: AntHeader, Content, Sider } = Layout;
 
@@ -47,6 +48,11 @@ function Header() {
               onClick: () => dispatch(sideMenuCollapse()),
             }
           )}
+        </Col>
+        <Col>
+          <div>
+            <ModalComedor />
+          </div>
         </Col>
         <Col>
           <div className={"right"}>
