@@ -1,5 +1,6 @@
 import { Avatar, List } from "antd";
 import React from "react";
+
 const data = [
   {
     title: "Comedor San Expedito",
@@ -12,6 +13,7 @@ const data = [
   },
 ];
 
+
 const ListaComedores = () => (
   <List
     itemLayout="horizontal"
@@ -19,7 +21,11 @@ const ListaComedores = () => (
     renderItem={(item) => (
       <List.Item>
         <List.Item.Meta
-          title={<a href="#">{item.title}</a>}
+          title={
+            <a  href="#">
+              {item.title}
+            </a>
+          }
           description="Click para seleccionar el comedor"
         />
       </List.Item>

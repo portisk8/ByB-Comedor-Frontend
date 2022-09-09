@@ -59,6 +59,14 @@ const FormularioInfante = ({Infante}) => {
   const onFinish = async (values) => {
     try {
       console.log(values)
+      let infante={
+        nombre: values.nombre,
+        apellido: values.apellido,
+        dni: values.dni,
+        fechaNacimiento: values.fechaNacimiento,
+        tutor: values.tutor,
+        diagnostico: []
+      };
       const url = "http://localhost:4000/infantes";
       const respuesta = await fetch(url, {
         method: "POST",

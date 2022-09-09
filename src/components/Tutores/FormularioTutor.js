@@ -44,27 +44,24 @@ const FormularioTutor = () => {
 
   const onFinish = async (values) => {
     try {
-      const url='http://localhost:4000/tutores'
-      const respuesta=await fetch(url,{
-        method: 'POST',
+      const url = "http://localhost:4000/tutores";
+      const respuesta = await fetch(url, {
+        method: "POST",
         body: JSON.stringify(values),
-        headers:{
-          'Content-Type': 'application/json'
-        }
-      })
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
 
-      const resultado=await respuesta.json()
-      console.log(resultado)
-    } catch (error) {
-      
-    }
+      const resultado = await respuesta.json();
+      console.log(resultado);
+    } catch (error) {}
   };
 
   const onReset = () => {
     form.resetFields();
   };
 
-  
   const prefixSelector = (
     <Form.Item name="prefix" noStyle>
       <Select
@@ -73,19 +70,24 @@ const FormularioTutor = () => {
         }}
       >
         <Option value="54">+54</Option>
-        
       </Select>
     </Form.Item>
   );
 
   return (
-    <Form {...layout} form={form} name="control-hooks" onFinish={onFinish} initialValues={{
-      nombre: '',
-      apellido: '',
-      dni: '',
-      domicilio:'',
-      telefono:''
-    }} >
+    <Form
+      {...layout}
+      form={form}
+      name="control-hooks"
+      onFinish={onFinish}
+      initialValues={{
+        nombre: "",
+        apellido: "",
+        dni: "",
+        domicilio: "",
+        telefono: "",
+      }}
+    >
       <Form.Item
         name="nombre"
         label="Nombre"
@@ -131,7 +133,6 @@ const FormularioTutor = () => {
       >
         <Input />
       </Form.Item>
-     
 
       <Form.Item
         name="phone"
@@ -139,20 +140,17 @@ const FormularioTutor = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your phone number!',
+            message: "Please input your phone number!",
           },
         ]}
       >
         <Input
           addonBefore={prefixSelector}
           style={{
-            width: '100%',
+            width: "100%",
           }}
         />
       </Form.Item>
-
-
-     
 
       <Form.Item {...tailLayout}>
         <Button type="primary" htmlType="submit">
@@ -161,7 +159,6 @@ const FormularioTutor = () => {
         <Button htmlType="button" onClick={onReset}>
           Reiniciar Formulario
         </Button>
-        
       </Form.Item>
     </Form>
   );

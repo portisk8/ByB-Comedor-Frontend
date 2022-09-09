@@ -1,40 +1,15 @@
 {
-  "infantes": [
-    {
-      "fechaCarga": "2022-07-21",
-      "nombre": "Juan",
-      "apellido": "Almaraz",
-      "dni": "3432454",
-      "tutor": "3432454 - Juan Almaraz",
-      "edad": "34",
-      "peso": 23,
-      "altura": 32,
-      "circuferencia": 32,
-      "id": 1
-    },
-    {
-      "fechaCarga": "2022-07-21",
-      "nombre": "Gabriel",
-      "apellido": "Perez",
-      "dni": "3432454",
-      "tutor": "3432454 - Juan Almaraz",
-      "edad": "15",
-      "fechaNac": "2015-01-25T03:00:00.000Z",
-      "peso": 76,
-      "altura": 76,
-      "circuferencia": 76,
-      "id": 2
-    }
-  ],
+  "infantes": [],
   "tutores": [
     {
-      "nombre": "Juan",
+      "nombre": "Facundo",
       "apellido": "Almaraz",
       "dni": "3432454",
-      "domicilio": "dsasdadsdas",
+      "domicilio": "asjdasdlkj 32324",
       "prefix": "54",
       "phone": "56546545",
       "id": 1
     }
-  ]
+  ],
+ 
 }
