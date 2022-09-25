@@ -12,7 +12,7 @@ const TablaDatos = () => {
   useEffect(() => {
     const obtenerTutores = async () => {
       try {
-        const url = "http://localhost:4000/infantes";
+        const url = "https://fakeapi-json.herokuapp.com/infantes";
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
         setData(resultado);
@@ -25,7 +25,7 @@ const TablaDatos = () => {
   //funcion eliminar
   const eliminar = async (id) => {
     try {
-      const url = `http://localhost:4000/infantes/${id}`;
+      const url = `https://fakeapi-json.herokuapp.com/infantes/${id}`;
       const respuesta = await fetch(url, {
         method: "DELETE",
       });
@@ -34,19 +34,18 @@ const TablaDatos = () => {
     } catch (error) {
       console.log(error);
     }
-  }
+  };
   //funcion editar
   const editar = async (id) => {
     try {
-      const url = `http://localhost:4000/infantes/${id}`;
+      const url = `https://fakeapi-json.herokuapp.com/infantes/${id}`;
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
       setData(resultado);
     } catch (error) {
       console.log(error);
     }
-  }
-  
+  };
 
   const columns = [
     {
@@ -81,37 +80,22 @@ const TablaDatos = () => {
           >
             Ver Mas informacion
           </Button>
-          
+
           <Button type="danger" onClick={() => eliminar(record.id)}>
             Eliminar
           </Button>
-
-
-         
         </Space>
       ),
     },
   ];
 
-  const dataSource = [
-    {
-      key: "1",
-      fecha: "2021-05-01",
-      nombre: "Juan Perez",
-      dni: "12345678",
-      tutor: "Maria Lopez",
-    },
-  ]
-
-
-
-  /*const dataSource = Data.map((item) => ({
+  const dataSource = Data.map((item) => ({
     id: item.id,
     fecha: item.fechaCarga,
     nombre: `${item.nombre} ${item.apellido}`,
     dni: item.dni,
     tutor: item.tutor,
-  }));*/
+  }));
 
   return (
     <div>

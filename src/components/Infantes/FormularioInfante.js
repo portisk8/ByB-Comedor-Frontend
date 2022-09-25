@@ -41,7 +41,7 @@ const FormularioInfante = ({Infante}) => {
   useEffect(() => {
     const obtenerTutores = async () => {
       try {
-        const url = "https://fake-apibyb.herokuapp.com/tutores";
+        const url = "https://fakeapi-json.herokuapp.com/tutores";
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
         setTutor(resultado);
@@ -67,7 +67,7 @@ const FormularioInfante = ({Infante}) => {
         tutor: values.tutor,
         diagnostico: []
       };
-      const url = "http://localhost:4000/infantes";
+      const url = "https://fakeapi-json.herokuapp.com/infantes";
       const respuesta = await fetch(url, {
         method: "POST",
         body: JSON.stringify(values),

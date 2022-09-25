@@ -40,7 +40,7 @@ const TablaDiagnosticos = () => {
   //obtener los datos de la base de datos
   const obtenerDatos = async () => {
     try {
-      const url = `http://localhost:4000/infantes/${id}`;
+      const url = `https://fakeapi-json.herokuapp.com/infantes/${id}`;
       const respuesta = await fetch(url);
       const resultado = await respuesta.json();
       setDatos(resultado);
