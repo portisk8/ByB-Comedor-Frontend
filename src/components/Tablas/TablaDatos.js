@@ -93,18 +93,37 @@ const TablaDatos = () => {
     },
   ];
 
-  const dataSource = Data.map((item) => ({
+  const dataSource = [
+    {
+      key: "1",
+      fecha: "2021-05-01",
+      nombre: "Juan Perez",
+      dni: "12345678",
+      tutor: "Maria Lopez",
+    },
+
+    {
+      key: "2",
+      fecha: "2021-05-01",
+      nombre: "Juan Perez",
+      dni: "12345678",
+      tutor: "Maria Lopez",
+    },
+  ]
+
+
+
+  /*const dataSource = Data.map((item) => ({
     id: item.id,
     fecha: item.fechaCarga,
     nombre: `${item.nombre} ${item.apellido}`,
     dni: item.dni,
     tutor: item.tutor,
-  }));
+  }));*/
 
   return (
     <div>
-      <h4>Middle size table</h4>
-      <Table columns={columns} dataSource={dataSource} size="large" />
+      <h4>Middle size table</h4>Table columns={columns} dataSource={dataSource} size="large" />
     </div>
   );
 };
