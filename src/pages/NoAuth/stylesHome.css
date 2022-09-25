@@ -1,0 +1,137 @@
+.img-cover{
+    width: 100%;
+    height: 700px;
+    
+  }
+
+.container{
+width: 1200px;
+margin: 0 auto;
+
+
+
+}
+
+
+body{
+  background-color: #001529;
+
+
+}
+
+.titulo{
+  color: white;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 100px;
+  font-weight: 600;
+}
+
+.subtitulo{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.navegacion{
+  background-color: white;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  
+  
+  
+  
+  
+}
+
+.navegacion a{
+  color: #001529;
+  text-decoration: none;
+  padding: 10px;
+ 
+  
+
+}
+
+
+.parrafo{
+  color: white;
+  font-size: 20px;
+  text-align: center;
+  
+  font-weight: 600;
+}
+
+.footer{
+  background-color: white;
+  color: #001529;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 0px;
+align-items: center;
+  padding: 20px;
+  text-align: center;
+  
+}
+
+.redes a{
+  color: #001529;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 30px;
+  
+ 
+  
+
+
+}
+
+.actividades .iconos{
+  height: 15rem;
+  width: 15rem;
+border-radius: 50%;
+
+}
+
+
+
+.actividades{
+  
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  display: flex;
+  column-gap: 2rem;
+  
+
+}
+
+.actividad p{
+color: white;
+font-size: 20px;
+text-align: center;
+font-weight: 600;
+margin-top: 20px;
+
+}
+
+.actividad{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+
+}
+
+
+
+

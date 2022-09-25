@@ -41,7 +41,7 @@ const FormularioInfante = ({Infante}) => {
   useEffect(() => {
     const obtenerTutores = async () => {
       try {
-        const url = "http://localhost:4000/tutores";
+        const url = "https://fake-apibyb.herokuapp.com/tutores";
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
         setTutor(resultado);
