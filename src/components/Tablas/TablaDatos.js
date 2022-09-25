@@ -101,14 +101,6 @@ const TablaDatos = () => {
       dni: "12345678",
       tutor: "Maria Lopez",
     },
-
-    {
-      key: "2",
-      fecha: "2021-05-01",
-      nombre: "Juan Perez",
-      dni: "12345678",
-      tutor: "Maria Lopez",
-    },
   ]
 
 
@@ -123,7 +115,8 @@ const TablaDatos = () => {
 
   return (
     <div>
-      <h4>Middle size table</h4>Table columns={columns} dataSource={dataSource} size="large" />
+      <h4>Middle size table</h4>
+      <Table columns={columns} dataSource={dataSource} size="large" />
     </div>
   );
 };
