@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { Carousel } from "antd";
 import React from "react";
 import "./stylesHome.css";
@@ -127,3 +128,33 @@ const Inicio = () => {
   );
 };
 export default Inicio;
+=======
+import { Carousel } from 'antd';
+import React from 'react';
+const contentStyle = {
+  height: '160px',
+  color: '#fff',
+  lineHeight: '160px',
+  textAlign: 'center',
+  background: '#364d79',
+};
+
+const Inicio = () => (
+  <Carousel autoplay>
+    <div>
+      <h3 style={contentStyle}>1</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>2</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>3</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>4</h3>
+    </div>
+  </Carousel>
+);
+
+export default Inicio;
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb

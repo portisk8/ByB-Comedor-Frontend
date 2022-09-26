@@ -34,7 +34,11 @@ function SignIn() {
     dispatch(login(values)).then((data) => {
       setLoading(false);
       
+<<<<<<< HEAD
       if (data && data.access_token) navigate("/home");
+=======
+      if (data && data.access_token) navigate("/");
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
     });
   };
 

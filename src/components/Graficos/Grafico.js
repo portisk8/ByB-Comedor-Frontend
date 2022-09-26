@@ -24,8 +24,8 @@ const Grafico = ({arrayDatos, setArrayDatos}) => {
   };
 
 
- 
-  return <Line {...config} />;
+b
+g} />;
 };
 export default Grafico;
 

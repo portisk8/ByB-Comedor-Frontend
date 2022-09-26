@@ -41,7 +41,11 @@ const FormularioInfante = ({Infante}) => {
   useEffect(() => {
     const obtenerTutores = async () => {
       try {
+<<<<<<< HEAD
         const url = "https://fakeapi-json.herokuapp.com/tutores";
+=======
+        const url = "http://localhost:4000/tutores";
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
         setTutor(resultado);
@@ -63,6 +67,7 @@ const FormularioInfante = ({Infante}) => {
         nombre: values.nombre,
         apellido: values.apellido,
         dni: values.dni,
+<<<<<<< HEAD
         edad: values.edad,
         fechaNac: values.fechaNac ? moment(values.fechaNac).format("YYYY-MM-DD") : null,
         tutor: values.tutor,
@@ -79,6 +84,16 @@ const FormularioInfante = ({Infante}) => {
       const respuesta = await fetch(url, {
         method: "POST",
         body: JSON.stringify(infante),
+=======
+        fechaNacimiento: values.fechaNacimiento,
+        tutor: values.tutor,
+        diagnostico: []
+      };
+      const url = "http://localhost:4000/infantes";
+      const respuesta = await fetch(url, {
+        method: "POST",
+        body: JSON.stringify(values),
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
         headers: {
           "Content-Type": "application/json",
         },
@@ -89,10 +104,13 @@ const FormularioInfante = ({Infante}) => {
     } catch (error) {}
   };
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
   const onReset = () => {
     form.resetFields();
   };
@@ -109,11 +127,19 @@ const FormularioInfante = ({Infante}) => {
       name="control-hooks"
       onFinish={onFinish}
       initialValues={{
+<<<<<<< HEAD
         fecha: `${obtenerFecha()}`,
       }}
     >
       <Form.Item
         name="fecha"
+=======
+        fechaCarga: `${obtenerFecha()}`,
+      }}
+    >
+      <Form.Item
+        name="fechaCarga"
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
         label="Fecha"
         rules={[
           {
@@ -188,8 +214,13 @@ const FormularioInfante = ({Infante}) => {
           </Form.Item>
           <Form.Item name="fechaNac" label="Fecha de Nacimiento">
             <DatePicker
+<<<<<<< HEAD
               
               
+=======
+              defaultValue={moment("01/01/2015", dateFormatList[0])}
+              format={dateFormatList}
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
             />
           </Form.Item>
         </Col>

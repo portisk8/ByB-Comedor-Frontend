@@ -28,11 +28,18 @@
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
     "sass": "^1.52.2",
+<<<<<<< HEAD
     "serve": "^14.0.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
     "start": "serve -s build",
+=======
+    "web-vitals": "^2.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
