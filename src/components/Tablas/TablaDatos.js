@@ -22,7 +22,7 @@ const TablaDatos = () => {
     };
     obtenerTutores();
   }, []);
-  //funcion eliminar
+ 
   const eliminar = async (id) => {
     try {
       const url = `https://fakeapi-json.herokuapp.com/infantes/${id}`;
@@ -35,17 +35,8 @@ const TablaDatos = () => {
       console.log(error);
     }
   };
-  //funcion editar
-  const editar = async (id) => {
-    try {
-      const url = `https://fakeapi-json.herokuapp.com/infantes/${id}`;
-      const respuesta = await fetch(url);
-      const resultado = await respuesta.json();
-      setData(resultado);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+
+
 
   const columns = [
     {
@@ -84,6 +75,11 @@ const TablaDatos = () => {
           <Button type="danger" onClick={() => eliminar(record.id)}>
             Eliminar
           </Button>
+
+          
+
+
+          
         </Space>
       ),
     },
@@ -91,7 +87,7 @@ const TablaDatos = () => {
 
   const dataSource = Data.map((item) => ({
     id: item.id,
-    fecha: item.fechaCarga,
+    fecha: item.diagnostico[0].fecha,
     nombre: `${item.nombre} ${item.apellido}`,
     dni: item.dni,
     tutor: item.tutor,

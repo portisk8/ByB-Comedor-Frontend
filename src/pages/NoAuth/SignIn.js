@@ -34,7 +34,7 @@ function SignIn() {
     dispatch(login(values)).then((data) => {
       setLoading(false);
       
-      if (data && data.access_token) navigate("/");
+      if (data && data.access_token) navigate("/home");
     });
   };
 

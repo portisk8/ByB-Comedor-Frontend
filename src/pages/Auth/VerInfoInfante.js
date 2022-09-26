@@ -7,6 +7,7 @@ import TablaDiagnostico from "../../components/Tablas/TablaDiagnosticos";
 
 const VerInfoInfante = () => {
   const [Infante, setInfante] = useState({});
+  const [arrayDatos, setArrayDatos] = useState([]);
   const { id } = useParams();
   useEffect(() => {
     const obtenerTutores = async () => {
@@ -34,9 +35,9 @@ const VerInfoInfante = () => {
         <p>Fecha de Nacimiento: {Infante.fechaNac}</p>
 
         <h3>Datos de Diagnostico</h3>
-        <TablaDiagnostico Infante={Infante}/>
+        <TablaDiagnostico Infante={Infante} arrayDatos={arrayDatos} setArrayDatos={setArrayDatos} />
         <h3>Graficos Percentiles</h3>
-        <TabsGraficos />
+        <TabsGraficos arrayDatos={arrayDatos} setArrayDatos={setArrayDatos} />
       </Card>
     </>
   );

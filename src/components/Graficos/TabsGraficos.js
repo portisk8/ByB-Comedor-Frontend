@@ -8,10 +8,10 @@ const onChange = (key) => {
   console.log(key);
 };
 
-const TabsGraficos = () => (
+const TabsGraficos = ({arrayDatos, setArrayDatos}) => (
   <Tabs defaultActiveKey="1" onChange={onChange}>
     <TabPane tab="Peso" key="1">
-      <Grafico/>
+      <Grafico arrayDatos={arrayDatos} setArrayDatos={setArrayDatos} />
     </TabPane>
     
     <TabPane tab="IMC" key="2">

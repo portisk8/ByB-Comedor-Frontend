@@ -63,14 +63,22 @@ const FormularioInfante = ({Infante}) => {
         nombre: values.nombre,
         apellido: values.apellido,
         dni: values.dni,
-        fechaNacimiento: values.fechaNacimiento,
+        edad: values.edad,
+        fechaNac: values.fechaNac ? moment(values.fechaNac).format("YYYY-MM-DD") : null,
         tutor: values.tutor,
-        diagnostico: []
+        diagnostico: [
+          {
+            fecha: values.fecha,
+            peso: values.peso,
+            altura: values.altura,
+          },
+          
+        ]
       };
       const url = "https://fakeapi-json.herokuapp.com/infantes";
       const respuesta = await fetch(url, {
         method: "POST",
-        body: JSON.stringify(values),
+        body: JSON.stringify(infante),
         headers: {
           "Content-Type": "application/json",
         },
@@ -80,6 +88,10 @@ const FormularioInfante = ({Infante}) => {
       console.log(resultado);
     } catch (error) {}
   };
+
+
+
+
 
   const onReset = () => {
     form.resetFields();
@@ -97,11 +109,11 @@ const FormularioInfante = ({Infante}) => {
       name="control-hooks"
       onFinish={onFinish}
       initialValues={{
-        fechaCarga: `${obtenerFecha()}`,
+        fecha: `${obtenerFecha()}`,
       }}
     >
       <Form.Item
-        name="fechaCarga"
+        name="fecha"
         label="Fecha"
         rules={[
           {
@@ -176,8 +188,8 @@ const FormularioInfante = ({Infante}) => {
           </Form.Item>
           <Form.Item name="fechaNac" label="Fecha de Nacimiento">
             <DatePicker
-              defaultValue={moment("01/01/2015", dateFormatList[0])}
-              format={dateFormatList}
+              
+              
             />
           </Form.Item>
         </Col>

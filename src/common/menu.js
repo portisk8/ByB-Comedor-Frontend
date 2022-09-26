@@ -13,7 +13,7 @@ const menuData = [
     icon: <HomeOutlined />,
     // children,
     // type,
-    path: "",
+    path: "home",
   },
   {
     key: "dashboard",
