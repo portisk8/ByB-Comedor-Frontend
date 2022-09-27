@@ -35,7 +35,6 @@ const formItemLayout = {
 
 const FormularioInfante = ({Infante}) => {
   const [form] = Form.useForm();
-
   const [tutor, setTutor] = useState([]);
 
   useEffect(() => {

@@ -91,7 +91,6 @@ const TablaDiagnosticos = ({ arrayDatos, setArrayDatos }) => {
       dataIndex: "altura",
       key: "altura",
     },
-
     {
       title: "IMC",
       dataIndex: "imc",

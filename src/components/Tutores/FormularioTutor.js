@@ -44,7 +44,11 @@ const FormularioTutor = () => {
 
   const onFinish = async (values) => {
     try {
+<<<<<<< HEAD
       const url = "https://fakeapi-json.herokuapp.com/tutores";
+=======
+      const url = "http://localhost:4000/tutores";
+>>>>>>> eb79f3364b0833823cf7ce7c95b77d55ea086ccb
       const respuesta = await fetch(url, {
         method: "POST",
         body: JSON.stringify(values),

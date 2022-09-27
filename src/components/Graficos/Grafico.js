@@ -1,7 +1,7 @@
-import React from 'react';
-import { Line } from '@ant-design/charts';
+import React from "react";
+import { Line } from "@ant-design/charts";
 
-const Grafico = ({arrayDatos, setArrayDatos}) => {
+const Grafico = ({ arrayDatos, setArrayDatos }) => {
   const data = arrayDatos.map((item) => {
     return {
       fecha: item.fecha,
@@ -9,23 +9,19 @@ const Grafico = ({arrayDatos, setArrayDatos}) => {
     };
   });
 
-
-
   const config = {
     data,
-    
-    xField: 'fecha',
-    yField: 'peso',
-    seriesField: 'type',
+
+    xField: "fecha",
+    yField: "peso",
+    seriesField: "type",
     point: {
       size: 5,
-      shape: 'diamond',
+      shape: "diamond",
     },
   };
 
-
- 
   return <Line {...config} />;
 };
-export default Grafico;
 
+export default Grafico;

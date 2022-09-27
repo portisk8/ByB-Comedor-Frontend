@@ -71,7 +71,6 @@ const TablaDatos = () => {
           >
             Ver Mas informacion
           </Button>
-
           <Button type="danger" onClick={() => eliminar(record.id)}>
             Eliminar
           </Button>
