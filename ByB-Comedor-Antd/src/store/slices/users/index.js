@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import jwt from "jwt-decode";
 import { axiosRequest } from "../../../utils/requests";
 import CONFIG from "../../../common/environment";
-import { loginService } from "../../../services/user";
+import { loginService, refreshTokenService } from "../../../services/user";
 
 const API_URL = CONFIG.API_URL;
 
@@ -49,4 +49,11 @@ export const login = (user) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   console.log("DELETE USER");
   dispatch(deleteCurrentUser());
+};
+
+export const refreshToken = () => async (dispatch) => {
+  const response = await refreshTokenService();
+  if (!response.data) return;
+  await dispatch(setCurrentUser(response.data));
+  return response.data;
 };

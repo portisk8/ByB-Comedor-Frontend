@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./index.scss";
-import { Layout, Menu, Row, Col, Dropdown } from "antd";
+import { Layout, Menu, Row, Col, Dropdown, message } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
   LogoutOutlined,
+  BankOutlined,
 } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/slices/users";
@@ -14,6 +15,7 @@ import Notification from "../Notifications/Notification";
 import ENV from "../../common/environment";
 import Topnav from "./Topnav";
 import { useWindowSize } from "../../utils/Hooks/useWindowSize";
+import ComedorCambiarModal from "../ComedorCambiar/ComedorCambiarModal";
 
 const { MENU } = ENV;
 const { Header: AntHeader, Content, Sider } = Layout;
@@ -21,8 +23,24 @@ const { Header: AntHeader, Content, Sider } = Layout;
 function Header() {
   const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
+  const [comedorCambiarModal, setComedorCambiarModal] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
   const windowSize = useWindowSize();
+
+  const handleMenuClick = async (e) => {
+    console.log("click", e);
+    switch (e.key) {
+      case "1":
+        dispatch(logout());
+        break;
+      case "2":
+        setComedorCambiarModal(true);
+        break;
+
+      default:
+        break;
+    }
+  };
 
   return (
     <AntHeader
@@ -65,14 +83,23 @@ function Header() {
               menu={{
                 items: [
                   {
+                    key: "2",
+                    label: (
+                      <a>
+                        <BankOutlined /> Cambiar de comedor
+                      </a>
+                    ),
+                  },
+                  {
                     key: "1",
                     label: (
-                      <a onClick={() => dispatch(logout())}>
+                      <a>
                         <LogoutOutlined /> Salir
                       </a>
                     ),
                   },
                 ],
+                onClick: handleMenuClick,
               }}
               placement="bottom"
             >
@@ -88,6 +115,9 @@ function Header() {
           </div>
         </Col>
       </Row>
+      {comedorCambiarModal && (
+        <ComedorCambiarModal onClose={() => setComedorCambiarModal(false)} />
+      )}
     </AntHeader>
   );
 }

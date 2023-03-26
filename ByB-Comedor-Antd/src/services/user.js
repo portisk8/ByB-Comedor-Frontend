@@ -19,3 +19,14 @@ export async function loginService(body) {
     body,
   });
 }
+
+export async function refreshTokenService() {
+  let token = localStorage.getItem("token");
+  return axiosRequest(`${__APIURL}/api/auth/token/refresh`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+  });
+}
