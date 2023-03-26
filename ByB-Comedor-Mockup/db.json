@@ -1,0 +1,50 @@
+{
+  "infantes": [
+    {
+      "nombre": "Pepe",
+      "apellido": "Pepito",
+      "dni": "123",
+      "fechaNac": null,
+      "tutor": "123",
+      "diagnostico": [
+        {
+          "fecha": "2023-02-24",
+          "peso": 123,
+          "altura": 123
+        },
+        {
+          "fecha": "2023-02-25",
+          "peso": 1,
+          "altura": 1
+        },
+        {
+          "fecha": "2023-02-25",
+          "peso": 100,
+          "altura": 110
+        },
+        {
+          "fecha": "2023-03-22",
+          "peso": 12,
+          "altura": 12
+        },
+        {
+          "fecha": "2023-03-24",
+          "peso": 15,
+          "altura": 15
+        }
+      ],
+      "id": 1
+    }
+  ],
+  "tutores": [
+    {
+      "nombre": "Augusto",
+      "apellido": "Portillo",
+      "dni": "12345678",
+      "domicilio": "Reconquista1573",
+      "prefix": "54",
+      "phone": "03794263886",
+      "id": 1
+    }
+  ]
+}
