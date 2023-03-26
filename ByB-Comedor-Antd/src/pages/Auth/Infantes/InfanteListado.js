@@ -1,7 +1,6 @@
 import { Button, Form, Input, Space, Table } from "antd";
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { personaBuscarService } from "../../../services/personaService";
 import { setKeyTable } from "../../../utils/utils";
 
@@ -20,6 +19,7 @@ function InfanteListado() {
   const [personaList, setPersonaList] = useState([]);
   const user = JSON.parse(localStorage.getItem("user"));
   const [form] = Form.useForm();
+  const navigate = useNavigate();
 
   const personaBuscar = async (filtro) => {
     filtro.comedorId = user.comedorId;
@@ -31,7 +31,9 @@ function InfanteListado() {
   };
 
   const init = async () => {
+    setLoading(true);
     await personaBuscar(Object.assign({}, filtrosDefault));
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -63,7 +65,12 @@ function InfanteListado() {
       render: (row) => (
         <div className="text-center ">
           <Space>
-            <Button type="primary">Mas información</Button>
+            <Button
+              type="primary"
+              onClick={() => navigate(`/infante/${row.personaId}/historial`)}
+            >
+              Mas información
+            </Button>
             <Button danger type="primary">
               Eliminar
             </Button>
