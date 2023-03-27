@@ -103,7 +103,7 @@ function TutorFormModal({ personaId, onClose }) {
       }
       onCancel={() => onClose()}
       footer={[
-        <Button onClick={onClose}>Cancelar</Button>,
+        <Button onClick={() => onClose()}>Cancelar</Button>,
         <Button type="primary" onClick={form.submit}>
           Guardar
         </Button>,

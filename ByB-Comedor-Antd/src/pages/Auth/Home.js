@@ -14,6 +14,7 @@ import Slider from "react-slick";
 import CarouselMobile from "../../components/CarouselCustom/CarouselMobile";
 import PageHeaderLayout from "../../components/PageHeaderLayout/PageHeaderLayout";
 import { useWindowSize } from "../../utils/Hooks/useWindowSize";
+import InfanteFormModal from "./Infantes/InfanteFormModal";
 import InfanteListado from "./Infantes/InfanteListado";
 import TutorFormModal from "./Tutor/TutorFormModal";
 
@@ -21,6 +22,7 @@ const { Meta } = Card;
 
 function Home() {
   const [tutorFormModal, setTutorFormModal] = useState(false);
+  const [infanteFormModal, setInfanteFormModal] = useState(false);
 
   const navigate = useNavigate();
   const carouselRef = useRef(null);
@@ -34,6 +36,9 @@ function Home() {
       <Row gutter={16}>
         <Col xs={24}>
           <Space>
+            <Button type="primary" onClick={() => setInfanteFormModal(true)}>
+              Agregar Infante
+            </Button>
             <Button type="primary" onClick={() => setTutorFormModal(true)}>
               Agregar Tutor
             </Button>
@@ -47,6 +52,9 @@ function Home() {
       </Row>
       {tutorFormModal && (
         <TutorFormModal onClose={(personaId) => setTutorFormModal(false)} />
+      )}
+      {infanteFormModal && (
+        <InfanteFormModal onClose={(personaId) => setInfanteFormModal(false)} />
       )}
     </PageHeaderLayout>
   );
