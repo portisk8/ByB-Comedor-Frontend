@@ -9,6 +9,7 @@ import {
 } from "../../../services/personaService";
 import { formatNumber } from "../../../utils/utils";
 import HistorialChartTab from "./HistorialChartTab";
+import PersonaHistorialFormModal from "./PersonaHistorialFormModal";
 
 const filtrosDefault = {
   personaId: null,
@@ -24,6 +25,9 @@ const filtrosDefault = {
 function InfanteHistorial() {
   const [filtros, setFiltros] = useState({});
   const [loading, setLoading] = useState(false);
+  const [personaHistorialFormModal, setPersonaHistorialFormModal] =
+    useState(false);
+
   const [persona, setPersona] = useState();
   const [historialList, setHistorialList] = useState([]);
 
@@ -108,6 +112,14 @@ function InfanteHistorial() {
     personaHistorialBuscar(Object.assign({}, filtrosDefault));
   };
 
+  const handleCloseModal = (refresh) => {
+    setPersonaHistorialFormModal(false);
+    if (refresh) {
+      filtros.pageIndex = 1;
+      personaHistorialBuscar(filtros);
+    }
+  };
+
   return (
     <PageHeaderLayout
       title={`${persona?.nombre} ${persona?.apellido}`}
@@ -116,6 +128,14 @@ function InfanteHistorial() {
         { label: "Infante" },
         { label: `${persona?.nombre} ${persona?.apellido}` },
         { label: "Hisotiral" },
+      ]}
+      rightButton={[
+        <Button
+          type="primary"
+          onClick={() => setPersonaHistorialFormModal(true)}
+        >
+          Agregar diagnóstico
+        </Button>,
       ]}
     >
       <div style={{ paddingTop: 10 }}>
@@ -167,6 +187,12 @@ function InfanteHistorial() {
           </Col>
         </Row>
       </div>
+      {personaHistorialFormModal && (
+        <PersonaHistorialFormModal
+          onClose={(refresh) => handleCloseModal(refresh)}
+          personaId={personaId}
+        />
+      )}
     </PageHeaderLayout>
   );
 }
