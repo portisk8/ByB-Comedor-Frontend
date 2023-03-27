@@ -22,6 +22,7 @@ import {
 import {
   personaGuardarService,
   personaListarService,
+  personaObtenerService,
 } from "../../../services/personaService";
 import TutorFormModal from "../Tutor/TutorFormModal";
 
@@ -52,12 +53,28 @@ function InfanteFormModal({ personaId, onClose }) {
     });
     if (response.data) setPersonaList(response.data);
   };
+  const personaObtener = async () => {
+    const response = await personaObtenerService(personaId);
+    if (response.data) {
+      let persona = response.data;
+      if (persona.fechaNacimiento) {
+        setShowFechaNacimiento(true);
+        persona.fechaNacimiento = dayjs(persona.fechaNacimiento);
+      } else {
+        setShowFechaNacimiento(false);
+      }
+      setPersona(persona);
+      console.log(persona);
+      form.setFieldsValue(persona);
+    }
+  };
 
   const init = async () => {
     setLoading(true);
     await sexoTipoListar();
     await documentoTipoListar();
     await personaListar();
+    if (personaId) await personaObtener();
     setLoading(false);
   };
 
@@ -68,6 +85,7 @@ function InfanteFormModal({ personaId, onClose }) {
   const handleSubmitForm = async (values) => {
     console.log(values);
     values.comedorId = user.comedorId;
+    values.personaId = personaId;
     const response = await personaGuardarService(values);
     if (response.data?.success) {
       message.success(response.data.message);
@@ -161,7 +179,7 @@ function InfanteFormModal({ personaId, onClose }) {
           <Col xs={24} lg={12}>
             <Form.Item
               label={"Número"}
-              name={"documento"}
+              name={"documentoNumero"}
               rules={[{ required: true, message: "Campo requerido" }]}
             >
               <Input />
@@ -243,13 +261,13 @@ function InfanteFormModal({ personaId, onClose }) {
           <Col xs={24}>
             <Form.Item
               label={"Tutor"}
-              name={"personaTutorId"}
+              name={"personaIdTutor"}
               rules={[{ required: true, message: "Campo requerido" }]}
             >
               <Select placeholder="Seleccione">
                 {personaList.map((item, ix) => (
                   <Select.Option
-                    key={`personaTutorId-${item.personaId}`}
+                    key={`personaIdTutor-${item.personaId}`}
                     value={item.personaId}
                   >
                     {item.nombre} {item.apellido}

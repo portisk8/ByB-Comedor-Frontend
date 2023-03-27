@@ -19,7 +19,10 @@ import {
   documentoTipoListarService,
   sexoTipoListarService,
 } from "../../../services/comunService";
-import { personaGuardarService } from "../../../services/personaService";
+import {
+  personaGuardarService,
+  personaObtenerService,
+} from "../../../services/personaService";
 
 function TutorFormModal({ personaId, onClose }) {
   const [loading, setLoading] = useState(false);
@@ -39,11 +42,27 @@ function TutorFormModal({ personaId, onClose }) {
     const response = await documentoTipoListarService();
     if (response.data) setDocumentoTipoList(response.data);
   };
+  const personaObtener = async () => {
+    const response = await personaObtenerService(personaId);
+    if (response.data) {
+      let persona = response.data;
+      if (persona.fechaNacimiento) {
+        setShowFechaNacimiento(true);
+        persona.fechaNacimiento = dayjs(persona.fechaNacimiento);
+      } else {
+        setShowFechaNacimiento(false);
+      }
+      setPersona(persona);
+      console.log(persona);
+      form.setFieldsValue(persona);
+    }
+  };
 
   const init = async () => {
     setLoading(true);
     await sexoTipoListar();
     await documentoTipoListar();
+    if (personaId) await personaObtener();
     setLoading(false);
   };
 
@@ -54,6 +73,7 @@ function TutorFormModal({ personaId, onClose }) {
   const handleSubmitForm = async (values) => {
     console.log(values);
     values.comedorId = user.comedorId;
+    values.personaId = personaId;
     const response = await personaGuardarService(values);
     if (response.data?.success) {
       message.success(response.data.message);
@@ -146,7 +166,7 @@ function TutorFormModal({ personaId, onClose }) {
           <Col xs={24} lg={12}>
             <Form.Item
               label={"Número"}
-              name={"documento"}
+              name={"documentoNumero"}
               rules={[{ required: true, message: "Campo requerido" }]}
             >
               <Input />

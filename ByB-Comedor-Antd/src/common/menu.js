@@ -6,6 +6,7 @@ import Icon, {
   LineHeightOutlined,
   ScheduleOutlined,
   SettingOutlined,
+  UserOutlined,
 } from "@ant-design/icons";
 const menuData = [
   {
@@ -15,6 +16,14 @@ const menuData = [
     // children,
     // type,
     path: "",
+  },
+  {
+    key: "personas",
+    label: "Personas",
+    icon: <UserOutlined />,
+    // children,
+    // type,
+    path: "personas",
   },
   {
     key: "Configuraciones",
