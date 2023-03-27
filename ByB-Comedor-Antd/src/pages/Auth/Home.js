@@ -5,7 +5,7 @@ import {
   RightOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import { Button, Card, Carousel, Col, Row } from "antd";
+import { Button, Card, Carousel, Col, Row, Space } from "antd";
 import React, { useRef } from "react";
 import { useState } from "react";
 import { useEffect } from "react";
@@ -15,10 +15,13 @@ import CarouselMobile from "../../components/CarouselCustom/CarouselMobile";
 import PageHeaderLayout from "../../components/PageHeaderLayout/PageHeaderLayout";
 import { useWindowSize } from "../../utils/Hooks/useWindowSize";
 import InfanteListado from "./Infantes/InfanteListado";
+import TutorFormModal from "./Tutor/TutorFormModal";
 
 const { Meta } = Card;
 
 function Home() {
+  const [tutorFormModal, setTutorFormModal] = useState(false);
+
   const navigate = useNavigate();
   const carouselRef = useRef(null);
   const windowsSize = useWindowSize();
@@ -30,9 +33,21 @@ function Home() {
     >
       <Row gutter={16}>
         <Col xs={24}>
+          <Space>
+            <Button type="primary" onClick={() => setTutorFormModal(true)}>
+              Agregar Tutor
+            </Button>
+          </Space>
+        </Col>
+      </Row>
+      <Row gutter={16}>
+        <Col xs={24}>
           <InfanteListado />
         </Col>
       </Row>
+      {tutorFormModal && (
+        <TutorFormModal onClose={(personaId) => setTutorFormModal(false)} />
+      )}
     </PageHeaderLayout>
   );
 }
