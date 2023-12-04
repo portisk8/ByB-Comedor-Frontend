@@ -25,3 +25,17 @@ export async function comedorCambiarService(comedorId) {
     },
   });
 }
+
+export async function comedorGuardarService(form) {
+  let token = localStorage.getItem("token");
+
+  return axiosRequest(`${__APIURL}/api/comedor/guardar`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    body: form,
+  });
+}
+
