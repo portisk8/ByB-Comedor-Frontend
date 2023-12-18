@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import PageHeaderLayout from "../../../components/PageHeaderLayout/PageHeaderLayout";
 import { setKeyTable } from "../../../utils/utils";
 import { comedorListarService } from "../../../services/comedorService";
+import ModalAgregarComedor from "./ModalAgregarComedor";
 
 const filtrosDefault = {
   esInfante: null,
@@ -159,9 +160,7 @@ function ComedorListado() {
               <Button onClick={form.submit}>
                 Filtrar
               </Button>
-              <Button onClick={() => setComedorFormModal({})}>
-                Agregar Comedor
-              </Button>
+              <ModalAgregarComedor/>
             </Space>
           </Col>
         </Row>

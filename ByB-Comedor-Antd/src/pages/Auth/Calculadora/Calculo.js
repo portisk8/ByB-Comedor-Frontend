@@ -5,8 +5,10 @@ import PageHeaderLayout from "../../../components/PageHeaderLayout/PageHeaderLay
 
 const Calculo = () => {
   const [numeroDeChicos, setNumeroDeChicos] = useState(0);
-  const [cantidadDePorciones, setCantidadDePorciones] = useState(0);
-  const [cantidadDeLitros, setCantidadDeLitros] = useState(0);
+  const [cantidadDeGramos, setCantidadDeGramos] = useState(0);
+  const [cantidadDeLitrosPasta, setCantidadDeLitrosPasta] = useState(0);
+  const [cantidadDeLitrosGuiso, setCantidadDeLitrosGuiso] = useState(0);
+
 
   const handleInputChange = (e) => {
     const valor = e.target.value;
@@ -15,10 +17,12 @@ const Calculo = () => {
 
   const calcularPorciones = () => {
     // Calcula la cantidad de porciones (cada porción equivale a 5 chicos)
-    const porciones = Math.ceil(numeroDeChicos / 5);
-    setCantidadDePorciones(porciones);
-    const litros = Math.ceil(porciones * 2);
-    setCantidadDeLitros(litros);
+    const gramos = Math.ceil(numeroDeChicos * 75);
+    setCantidadDeGramos(gramos);
+    const litrosPasta = Math.ceil(gramos * 2);
+    const litrosGuiso = Math.ceil(gramos * 3);
+    setCantidadDeLitrosPasta(litrosPasta);
+    setCantidadDeLitrosGuiso(litrosGuiso);
   };
 
   return (
@@ -42,10 +46,13 @@ const Calculo = () => {
             Calcular
           </Button>
           <p style={{ marginTop: '16px'}}>
-            La cantidad de porciones necesarias es: <strong>{cantidadDePorciones}</strong>
+            La cantidad de gramos necesarios son: <strong>{cantidadDeGramos} gr</strong>
           </p>
           <p>
-            La cantidad de litros de agua necesarios son: <strong>{cantidadDeLitros}</strong>
+            Para una consistencia de Pasta se necesitan <strong>{cantidadDeLitrosPasta} ml</strong>  de agua
+          </p>
+          <p>
+            Para una consistencia de Guiso se necesitan <strong>{cantidadDeLitrosGuiso} ml</strong> ml de agua
           </p>
         </div>
       </Col>
