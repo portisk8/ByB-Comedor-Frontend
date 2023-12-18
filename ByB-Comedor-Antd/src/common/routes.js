@@ -6,12 +6,14 @@ import Inicio from "../pages/NoAuth/Inicio";
 import InfanteHistorial from "../pages/Auth/Infantes/InfanteHistorial";
 import PesonaListado from "../pages/Auth/Personas/PersonaListado";
 import ComedorListado from "../pages/Auth/Comedor/ComedorListado";
+import Calculo from "../pages/Auth/Calculadora/Calculo";
 
 export const authRoutes = [
   { path: "/", element: <Home /> },
   { path: "/personas", element: <PesonaListado /> },
   { path: "/infante/:personaId/historial", element: <InfanteHistorial /> },
   { path: "/configuraciones/comedor", element: <ComedorListado /> },
+  { path: "/calculo", element: <Calculo /> },
   { path: "/*", element: <PageNotFound /> },
 ];
 

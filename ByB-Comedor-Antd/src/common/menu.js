@@ -7,6 +7,7 @@ import Icon, {
   ScheduleOutlined,
   SettingOutlined,
   UserOutlined,
+  CalculatorOutlined,
 } from "@ant-design/icons";
 const menuData = [
   {
@@ -24,6 +25,14 @@ const menuData = [
     // children,
     // type,
     path: "personas",
+  },
+  {
+    key: "calculo",
+    label: "Calculadora",
+    icon: <CalculatorOutlined />,
+    // children,
+    // type,
+    path: "calculo",
   },
   {
     key: "Configuraciones",
