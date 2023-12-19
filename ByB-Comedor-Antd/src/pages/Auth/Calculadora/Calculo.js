@@ -32,6 +32,7 @@ const Calculo = () => {
     >
     <Row gutter={16} justify="center">
       <Col xs={24} md={12}>
+      <br></br>
         <div style={{ textAlign: 'center', backgroundColor: '#f0f0f0', padding: '16px', borderRadius: '8px' }}>
     
           <Input
@@ -54,9 +55,77 @@ const Calculo = () => {
           <p>
             Para una consistencia de Guiso se necesitan <strong>{cantidadDeLitrosGuiso} ml</strong> ml de agua
           </p>
-        </div>
-      </Col>
-    </Row>
+          <br></br>
+          <div style={{ marginTop: '32px', textAlign: 'center' }}>
+              <h2 style={{fontSize: '20px', fontWeight: 'bold'}}>Receta por porción</h2>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <thead>
+                  <tr>
+                    <th style={{ border: '1px solid #dddddd', padding: '8px' }}>Alimento</th>
+                    <th style={{ border: '1px solid #dddddd', padding: '8px' }}>Cantidad en gramos (gr)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Apio</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>1</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Cebolla deshidratada</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>1</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Espinaca deshidratada</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>2</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Perejil</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>0.5</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Puerro</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>0.5</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Tomate</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>5</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Zanahoria deshidratada</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>1</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Zapallo</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>10</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Arroz parboil</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>13.5</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Arvejas secas</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>7.5</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Garbanzos</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>10</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Lenteja</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>18</td>
+                  </tr>
+                  <tr>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>Trigo sarraceno</td>
+                    <td style={{ border: '1px solid #dddddd', padding: '8px' }}>5</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <br></br>
+          <br></br>
+        </Col>
+      </Row>
     </PageHeaderLayout>
   );
 };
