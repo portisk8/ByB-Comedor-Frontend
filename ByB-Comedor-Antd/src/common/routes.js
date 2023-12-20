@@ -12,7 +12,7 @@ export const authRoutes = [
   { path: "/", element: <Home /> },
   { path: "/personas", element: <PesonaListado /> },
   { path: "/infante/:personaId/historial", element: <InfanteHistorial /> },
-  { path: "/configuraciones/comedor", element: <ComedorListado /> },
+  // { path: "/configuraciones/comedor", element: <ComedorListado /> },
   { path: "/calculo", element: <Calculo /> },
   { path: "/*", element: <PageNotFound /> },
 ];

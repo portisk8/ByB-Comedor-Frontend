@@ -34,20 +34,20 @@ const menuData = [
     // type,
     path: "calculo",
   },
-  {
-    key: "Configuraciones",
-    label: "Configuraciones",
-    icon: <SettingOutlined />,
-    path: "Configuraciones",
-    children: [
-      {
-        key: "Configuraciones-Comedor",
-        label: "Comedor",
-        icon: <SettingOutlined />,
-        path: "Comedor",
-      },
-    ],
-  },
+  // {
+  //   key: "Configuraciones",
+  //   label: "Configuraciones",
+  //   icon: <SettingOutlined />,
+  //   path: "Configuraciones",
+  //   children: [
+  //     {
+  //       key: "Configuraciones-Comedor",
+  //       label: "Comedor",
+  //       icon: <SettingOutlined />,
+  //       path: "Comedor",
+  //     },
+  //   ],
+  // },
 ];
 
 function formatter(data, parentPath = "/", parentAuthority, breadcrumbData) {
